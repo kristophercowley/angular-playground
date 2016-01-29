@@ -26,6 +26,14 @@ function CartController(){
   * this function should return the total cost
   * of each item that is in our cart
   */ 
+
+  this.calculateCartTotal = function(){
+      this.totalCost = 0;
+    for(var i = 0; i < this.cart.length; i++){
+          this.totalCost += this.cart[i].price;
+    }
+     return this.totalCost;
+  }
   
   
   this.removeItemFromCart = function(item){
@@ -36,11 +44,17 @@ function CartController(){
     * in item is in the array. Then you will need to use the correct
     * Array.method to remove 1 item hint method(i, 1);
     */
+    for(var i = 0; i < this.cart.length; i++){
+      var temp = this.cart[i];
+      if(temp === item){
+        this.cart.splice(temp, 1);
+      }  
+    }
   };
   
   this.addItemToCart = function(item){
       //item gets passed in to this function from the view
-      
+      console.log(item)
       /*
       Our cart demands that items being added to it must have the following properties
       var newItem = {
@@ -55,7 +69,16 @@ function CartController(){
       remaped to the newItem object. 
       After building the newItem add it to the cart 
       */
-      
+      //example from console.log {name: "T-Shirt", colors: Array[4], sizes: Array[4], price: 6.79, img: "https://www.qwertee.com/images/mens-black.png"…}
+      var newItem = {
+        name: item.name,
+        color: item.colors,
+        size: item.sizes,
+        quantity: 1,
+        price: item.price
+      }
+      this.cart.push(newItem);
+      console.log(this.cart)
   }
   
 }
