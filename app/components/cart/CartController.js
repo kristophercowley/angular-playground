@@ -13,11 +13,15 @@ function CartController(){
   };
   //*** No Need to edit anything above this line ****
   
-  this.name = "My BɼokƏn Cart!";
+  this.name = "My Awesome Cart!"//"My BɼokƏn Cart!";
   
   this.getCount = function(){
     //return the length of our cart
-    return this.cart.length;
+    var total = 0;
+    for(var i = 0; i < this.cart.length;i++){
+      total += this.cart[i].quantity;
+    }
+    return total;
   };
   
   /*
@@ -30,7 +34,7 @@ function CartController(){
   this.calculateCartTotal = function(){
       this.totalCost = 0;
     for(var i = 0; i < this.cart.length; i++){
-          this.totalCost += this.cart[i].price;
+          this.totalCost += (this.cart[i].price * this.cart[i].quantity);
     }
      return this.totalCost;
   }
@@ -72,10 +76,10 @@ function CartController(){
       //example from console.log {name: "T-Shirt", colors: Array[4], sizes: Array[4], price: 6.79, img: "https://www.qwertee.com/images/mens-black.png"…}
       var newItem = {
         name: item.name,
-        color: item.colors,
-        size: item.sizes,
+        color: item.selectedColor,
+        size: item.selectedSize,
         quantity: 1,
-        price: item.price
+        price:item.price
       }
       this.cart.push(newItem);
       console.log(this.cart)
