@@ -43,7 +43,7 @@ function ControllersController(){
 					<div class="answer">
 						<ul class="list-group" style="width: 50%">
 							<input ng-model="controller.newFriend" />
-							<button ng-click="controller.addFriend()">Add Friend</button>
+							<button ng-click="controller.addFriend(controller.newFriend)">Add Friend</button>
 							<p><small>Don't forget to clear the input box when you add a friend</small></p>
 						</ul>
 					</div>
