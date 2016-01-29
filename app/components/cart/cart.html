@@ -48,7 +48,7 @@
         <td></td>
         <td class="text-right">Total:</td>
         <!--HElP out the view to make the price display as currency by using a filter-->
-        <td>{{controller.calculateCartTotal()}}</td>
+        <td>{{controller.calculateCartTotal() | currency}}</td>
         <td></td>
       </tr>
     </tfoot>
@@ -66,10 +66,10 @@
         - Where the first word represents an entire object similarly to the .forEach(function(item))
         - ** hint: be sure to use item as the first word
         -->
-      <div ng-repeat="" class="col-sm-4">
+      <div ng-repeat="item in controller.store.items" class="col-sm-4">
         <div class="shopping-item">
           <!--HElP out the view to make the price of the item display as currency by using a filter-->
-          <p class="item-price">{{item.price}}</p>
+          <p class="item-price">{{item.price | currency}}</p>
           <p class="item-name">
             {{item.name}}</p>
           <img ng-src="{{item.img}}">

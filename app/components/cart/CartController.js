@@ -15,8 +15,9 @@ function CartController(){
   
   this.name = "My BɼokƏn Cart!";
   
-  this.getCartCount = function(){
+  this.getCount = function(){
     //return the length of our cart
+    return this.cart.length;
   };
   
   /*
